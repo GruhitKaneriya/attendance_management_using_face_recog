@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+            padding: 20px 0;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to the Teacher Attendance System</h1>
+<h2>Present Students</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Roll Number</th>
+        <th>Name</th> <!-- Add a new column for student names -->
+    </tr>
+    </thead>
+    <tbody>
+    {% for student in present_students %}
+    <tr>
+        <td>{{ student[0] }}</td>
+        <td>{{ student[1] }}</td> <!-- Access the tuple elements by index -->
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<h2>Absent Students</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Roll Number</th>
+        <th>Name</th> <!-- Add a new column for student names -->
+    </tr>
+    </thead>
+    <tbody>
+    {% for student in absent_students %}
+    <tr>
+        <td>{{ student[0] }}</td>
+        <td>{{ student[1] }}</td> <!-- Access the tuple elements by index -->
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student's Attendance View</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Student's Attendance View</h1>
+  {% if roll_no %}
+  <h2>Roll Number: {{ roll_no }}</h2>
+  <p>Attendance Status: {{ status }}</p>
+  {% else %}
+  <form method="POST" action="/view_attendance">
+    <label for="roll_no">Enter your Roll Number:</label>
+    <input type="number" name="roll_no" required>
+    <input type="hidden" name="role" value="student">
+    <input type="submit" value="Check Attendance">
+  </form>
+  {% endif %}
+</div>
+</body>
+</html>

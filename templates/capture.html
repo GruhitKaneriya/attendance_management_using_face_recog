@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Capture Attendance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url("/static/background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto; /* Add margin for better spacing */
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    p {
+      text-align: center;
+      font-size: 18px;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #000; /* Set text color to black */
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<h1>Capture Attendance</h1>
+<button id="recognize-btn">Start Recognition</button>
+<p id="result-message"></p>
+<a href="/">Back to Home</a>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#recognize-btn').click(function() {
+      $.post('/recognize', function(data) {
+        $('#result-message').text(data.message);
+      });
+    });
+  });
+</script>
+</body>
+</html>
